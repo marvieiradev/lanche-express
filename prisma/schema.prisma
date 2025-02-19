@@ -18,6 +18,7 @@ model Restaurant {
   name           String
   slug           String
   description    String
+  avatarImageUrl String
   coverImageUrl  String
   menuCategories MenuCategory[]
   products       Product[]
