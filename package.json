@@ -25,6 +25,14 @@
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"
   },
+  "prettier": {
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "arrowParens": "always"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
