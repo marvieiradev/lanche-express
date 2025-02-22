@@ -33,6 +33,8 @@ import { Input } from '@/components/ui/input'
 
 import { CartContext } from '../context/cart'
 import { isValidCpf } from '../helpers/cpf'
+import { createOrder } from '../actions/create-order'
+import { toast } from 'sonner'
 
 const formSchema = z.object({
   name: z.string().trim().min(1, {
@@ -69,7 +71,26 @@ const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
     },
     shouldUnregister: true,
   })
-  const onSubmit = async (data: FormSchema) => {}
+  const onSubmit = async (data: FormSchema) => {
+    try {
+      const consumptionMethod = searchParams.get(
+        'consumptionMethod',
+      ) as ConsumptionMethod
+      startTransition(async () => {
+        await createOrder({
+          consumptionMethod,
+          customerCpf: data.cpf,
+          customerName: data.name,
+          products,
+          slug,
+        })
+        onOpenChange(false)
+        toast.success('Pedido finalizado com sucesso!')
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerTrigger asChild></DrawerTrigger>
