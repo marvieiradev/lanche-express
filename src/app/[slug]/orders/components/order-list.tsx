@@ -38,7 +38,6 @@ const getStatusLabel = (status: OrderStatus) => {
 }
 
 const OrderList = ({ orders }: OrderListProps) => {
-  const { slug } = useParams<{ slug: string }>()
   const router = useRouter()
   const handleBackClick = () => router.back()
   return (
