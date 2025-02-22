@@ -1,17 +1,17 @@
 import { useContext, useState } from 'react'
 
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet'
-
-import { CartContext } from '../context/cart'
-import CartProductItem from '../[productId]/components/cart-product-item'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { formatCurrency } from '@/helpers/format-currency'
+
+import CartProductItem from '../[productId]/components/cart-product-item'
+import { CartContext } from '../context/cart'
 import FinishOrderDialog from './finish-order-dialog'
 
 const CartSheet = () => {

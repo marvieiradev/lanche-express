@@ -7,7 +7,7 @@ import { useParams, useSearchParams } from 'next/navigation'
 import { useContext, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { PatternFormat } from 'react-number-format'
-
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
@@ -31,10 +31,9 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
+import { createOrder } from '../actions/create-order'
 import { CartContext } from '../context/cart'
 import { isValidCpf } from '../helpers/cpf'
-import { createOrder } from '../actions/create-order'
-import { toast } from 'sonner'
 
 const formSchema = z.object({
   name: z.string().trim().min(1, {

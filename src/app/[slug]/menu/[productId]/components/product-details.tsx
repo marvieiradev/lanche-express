@@ -1,13 +1,15 @@
 'use client'
-import { Button } from '@/components/ui/button'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { formatCurrency } from '@/helpers/format-currency'
 import { Prisma } from '@prisma/client'
 import { ChefHatIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useContext, useState } from 'react'
-import { CartContext } from '../../context/cart'
+
+import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { formatCurrency } from '@/helpers/format-currency'
+
 import CartSheet from '../../components/cart-sheet'
+import { CartContext } from '../../context/cart'
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
